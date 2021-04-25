@@ -1,1 +1,4 @@
 
+mapę myśli można edytować poprzez otwarcie pliku z rozszerzeniem json w aplikacji mindmaps
+
+https://www.mindmaps.app/

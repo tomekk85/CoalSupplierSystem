@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 
-const MaterialComponents = [
-
-];
+const MaterialComponents = [];
 
 @NgModule({
   imports: [MaterialComponents],

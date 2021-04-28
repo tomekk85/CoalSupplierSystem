@@ -1,4 +1,130 @@
 /* You can add global styles to this file, and also import other style files */
+html, body { height: 100%;}
+* { 
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans', sans-serif;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+    background-color: rgb(15, 15, 15) !important;
+}
+
+/* ### Side Navi */
+
+nav {
+    background-color: rgb(240, 240, 240);
+}
+
+nav::before {
+    content: "";
+    width: 80%;
+    height: 2px;
+    background: rgb(20, 20, 20);
+    position: absolute;
+    top: 0;
+}
+nav li {
+    width: 100%;
+}
+
+nav ul {
+    flex-wrap: wrap;
+    align-self: flex-start;
+}
+
+.active-user {
+    min-height: 200px;
+    background-color: rgb(240, 240, 240);
+}
+
+.my-nav {
+    max-width: 220px;
+    height: 100%;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: large;
+    color:rgb(20, 20, 20);
+    font-weight: bold;
+    margin: 6px 0 6px 0;
+    border-radius: 10px;
+    line-height: 40px;
+}
+
+.nav-link i:first-of-type{
+    margin-right: 6px;
+    margin-left:20px;
+}
+
+.nav-link i:not(:first-of-type){
+    margin-left: 10px;
+}
+
+.nav-link:hover {
+    background-color: rgba(255,255,255,.46);
+}
+
+#wh-collapse li, #client-collapse li {
+    list-style: none;
+    margin-left:65px;
+    width: 80px;
+    margin-bottom:12px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.active-link {
+    background-color: rgba(181, 187, 219, 0.753);
+}
+
+/* Content */
+
+.content {
+    width: 100%;
+}
+
+/* Warehouse main nav */
+#warehouse-main {
+    height: 100%;
+    color:rgb(240, 240, 240);
+}
+
+.card {
+    height: 180px;
+    width: 200px;
+    margin:40px;
+    border-radius: 40px !important;
+}
+
+.wh-nav-container {
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    display: flex;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    height: 400px;
+}
+
+.card-body {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-container {
+    width: 100%;
+    text-align: center;
+    font-size: 65px;
+    line-height: 65px;
+    color: rgb(0, 0, 0);
+    margin-bottom: 20px;
+}

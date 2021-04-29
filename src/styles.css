@@ -8,123 +8,42 @@ html, body { height: 100%;}
 }
 
 body {
-    background-color: rgb(15, 15, 15) !important;
+    background-color: rgb(250, 250, 250) !important;
 }
 
-/* ### Side Navi */
-
-nav {
-    background-color: rgb(240, 240, 240);
+mat-sidenav-container {
+    height: 100%;
+    max-width: 260px;
+    text-align: center;
 }
 
-nav::before {
-    content: "";
-    width: 80%;
-    height: 2px;
-    background: rgb(20, 20, 20);
-    position: absolute;
-    top: 0;
-}
-nav li {
-    width: 100%;
+mat-accordion mat-expansion-panel, .mat-raised-button{
+    margin-bottom: 20px !important;
+    width: 90%;
 }
 
-nav ul {
+mat-accordion mat-expansion-panel {
+    margin-left: 50%    !important;
+    transform: translateX(-50%);
+}   
+
+.icon {
+    width: 25px;
+    margin-right: 10px;
+}
+
+.content {
+    align-items: center;
     flex-wrap: wrap;
-    align-self: flex-start;
-}
-
-.active-user {
-    min-height: 200px;
-    background-color: rgb(240, 240, 240);
+    display: flex;
+    justify-content: center;
 }
 
 .my-nav {
-    max-width: 220px;
-    height: 100%;
+    border-right: 1px inset rgba(30,30,30, .23);
 }
 
-.nav-link {
-    text-decoration: none;
-    font-size: large;
-    color:rgb(20, 20, 20);
-    font-weight: bold;
-    margin: 6px 0 6px 0;
-    border-radius: 10px;
-    line-height: 40px;
-}
-
-.nav-link i:first-of-type{
-    margin-right: 6px;
-    margin-left:20px;
-}
-
-.nav-link i:not(:first-of-type){
-    margin-left: 10px;
-}
-
-.nav-link:hover {
-    background-color: rgba(255,255,255,.46);
-}
-
-#wh-collapse li, #client-collapse li {
-    list-style: none;
-    margin-left:65px;
-    width: 80px;
-    margin-bottom:12px;
-    font-weight: bold;
-    font-size: 15px;
-}
-
-.active-link {
-    background-color: rgba(181, 187, 219, 0.753);
-}
-
-/* Content */
-
-.content {
-    width: 100%;
-}
-
-/* Warehouse main nav */
-#warehouse-main {
-    height: 100%;
-    color:rgb(240, 240, 240);
-}
-
-.card {
-    height: 180px;
-    width: 200px;
-    margin:40px;
-    border-radius: 40px !important;
-}
-
-.wh-nav-container {
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    display: flex;
-}
-
-.row {
-    display: flex;
-    justify-content: center;
-    height: 400px;
-}
-
-.card-body {
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-}
-
-.icon-container {
-    width: 100%;
-    text-align: center;
-    font-size: 65px;
-    line-height: 65px;
-    color: rgb(0, 0, 0);
-    margin-bottom: 20px;
+.user-container {
+    height: 250px;
+    background-color: rgb(30,30,30);
 }

@@ -1,0 +1,16 @@
+mat-card {
+    width: 200px;
+    height: 180px;
+    text-align: center;
+    margin: 20px;
+}
+
+mat-card-content i{
+    font-size:80px;
+}
+
+.card-box {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -250px;
+}

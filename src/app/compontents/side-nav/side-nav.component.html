@@ -1,0 +1,70 @@
+<div>
+    <mat-sidenav-container>
+        <mat-sidenav-content>
+            <div class="user-container">
+            </div>
+            
+            <mat-list>
+                <mat-accordion class="example-headers-align">
+                    
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>     
+                    <mat-panel-title>
+                        <mat-list-item routerLink="warehouse">
+                            <div class="icon"><i class="fas fa-warehouse"></i></div>
+                            Magazyn
+                        </mat-list-item>
+                    </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <mat-list>
+                        <mat-list-item><a mat-raised-button color="primary" routerLink="warehouse/stock">Stan</a></mat-list-item>
+                        <mat-list-item><a mat-raised-button color="primary" routerLink="warehouse/gr">PZ</a></mat-list-item>
+                        <mat-list-item><a mat-raised-button color="primary" routerLink="warehouse/gr">WZ</a></mat-list-item>
+                    </mat-list>
+                </mat-expansion-panel>  
+
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>     
+                    <mat-panel-title>
+                            <mat-list-item>
+                                <div class="icon"><i class="fas fa-users"></i></div>
+                                Klienci
+                            </mat-list-item>
+                    </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <mat-list>
+                    </mat-list>
+                </mat-expansion-panel>   
+
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>     
+                    <mat-panel-title>
+                            <mat-list-item>
+                                <div class="icon"><i class="fas fa-truck-moving"></i></div>
+                                Dostawcy
+                            </mat-list-item>
+                    </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <mat-list>
+                    </mat-list>
+                </mat-expansion-panel>   
+
+            <a mat-raised-button class="vw-bt">
+                <mat-list-item>
+                    <div class="icon"><i class="fas fa-coins"></i></div>
+                    Cennik
+                </mat-list-item>  
+            </a>
+
+            <a mat-raised-button>
+                <mat-list-item>
+                    <div class="icon"><i class="fas fa-file-alt"></i></div>
+                    Faktura
+                </mat-list-item>
+            </a>
+
+            </mat-accordion>
+            </mat-list>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

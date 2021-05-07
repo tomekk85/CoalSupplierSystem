@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 
 export interface StockItem {
@@ -24,8 +25,7 @@ const BOOTSTRAP_DATA: StockItem[] = [
   {index: 2332, name: "W Czarny", amout: 4233},
   {index: 2513, name: "Czarny", amout: 1323},
   {index: 1663, name: "Ungiel Czarny", amout: 113},
-  {index: 1897, name: "Ungiel Biały", amout: 4303},
-  
+  {index: 1897, name: "Ungiel Biały", amout: 4303}
 ];
 
 @Component({
@@ -38,6 +38,9 @@ export class WarehouseStockComponent implements OnInit {
   dataSource: MatTableDataSource<StockItem>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
+  
   constructor() { 
     let bootstrapSortedData = BOOTSTRAP_DATA.sort((a,b) => (a.index < b.index ? -1: 1));
     this.dataSource  = new MatTableDataSource(bootstrapSortedData);

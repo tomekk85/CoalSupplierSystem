@@ -14,9 +14,6 @@ export interface GRItem {
   fab: number;
   name: string;
   amout: number;
-  nettPrice: number;
-  grossPrice: number;
-  vat: number;
 }
 
 @Component({
@@ -26,7 +23,7 @@ export interface GRItem {
 })
 
 export class WarehouseGrComponent implements OnInit {
-  displayedColumns: string[] = ["fab", "name", "amout", "nettPrice", "grossPrice", "vat"];
+  displayedColumns: string[] = ["fab", "name", "amout"];
   selection = new SelectionModel<GRItem>(true, []);
   items : GRItem[] = [];
   dataSource: MatTableDataSource<GRItem> = new MatTableDataSource(this.items);
@@ -44,9 +41,6 @@ export class WarehouseGrComponent implements OnInit {
   @ViewChild('FAB') _fab: ElementRef;
   @ViewChild('NAME') _name: ElementRef;
   @ViewChild('AMOUT') _amout: ElementRef;
-  @ViewChild('NETTPRICE') _nettPrice: ElementRef;
-  @ViewChild('GROSSPRICE') _grossPrice: ElementRef;
-  @ViewChild('VAT') _vat: ElementRef;
 
 
   constructor() { 
@@ -60,10 +54,7 @@ export class WarehouseGrComponent implements OnInit {
     let addItem : GRItem = {
       fab: this._fab.nativeElement.value,
       name: this._name.nativeElement.value,
-      amout: this._amout.nativeElement.value,
-      nettPrice: this._nettPrice.nativeElement.value,
-      grossPrice: this._grossPrice.nativeElement.value,
-      vat: this._vat.nativeElement.value
+      amout: this._amout.nativeElement.value
     }
     this.items.push(addItem);
     this.dataSource = new MatTableDataSource(this.items);
@@ -74,9 +65,6 @@ export class WarehouseGrComponent implements OnInit {
     this._fab.nativeElement.value = "";
     this._name.nativeElement.value = "";
     this._amout.nativeElement.value = "";
-    this._nettPrice.nativeElement.value = "";
-    this._grossPrice.nativeElement.value = "";
-    this._vat.nativeElement.value = "";
   }
 
 }

@@ -1,0 +1,26 @@
+mat-sidenav-container {
+    height: 100vh;
+    max-width: 260px;
+    text-align: center;
+    border-right: 1px inset rgba(30,30,30, .23);
+}
+
+mat-accordion mat-expansion-panel, .mat-raised-button{
+    margin-bottom: 20px !important;
+    width: 90%;
+}
+
+mat-accordion mat-expansion-panel {
+    margin-left: 50%    !important;
+    transform: translateX(-50%);
+}   
+
+.icon {
+    width: 25px;
+    margin-right: 10px;
+}
+
+.user-container {
+    height: 250px;
+    background-color: rgb(30,30,30);
+}

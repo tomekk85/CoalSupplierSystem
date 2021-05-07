@@ -85,24 +85,6 @@
                             </mat-form-field>
                         </td>
                         <td>
-                            <mat-form-field appearance="fill" class="short-input">
-                                <mat-label>Cena netto</mat-label>
-                                <input matInput type="number" #NETTPRICE>
-                            </mat-form-field>
-                        </td>
-                        <td>
-                            <mat-form-field appearance="fill" class="short-input">
-                                <mat-label>Wartosc netto</mat-label>
-                                <input matInput type="number" #GROSSPRICE>
-                            </mat-form-field>
-                        </td>
-                        <td>
-                            <mat-form-field appearance="fill" class="short-input-vat">
-                                <mat-label>VAT</mat-label>
-                                <input #VAT matInput type="number">
-                            </mat-form-field>
-                        </td>
-                        <td>
                             <button mat-button class="add-article-button" (click)="addData()"><i class="far fa-plus-square"></i></button>
                         </td>
                     </tr>
@@ -122,21 +104,6 @@
                     <ng-container matColumnDef="amout">
                       <th mat-header-cell *matHeaderCellDef> Ilość </th>
                       <td mat-cell *matCellDef="let element"> {{element.amout}} </td>
-                    </ng-container>
-                  
-                    <ng-container matColumnDef="nettPrice">
-                      <th mat-header-cell *matHeaderCellDef> Cena netto </th>
-                      <td mat-cell *matCellDef="let element"> {{element.nettPrice}} </td>
-                    </ng-container>
-                  
-                    <ng-container matColumnDef="grossPrice">
-                        <th mat-header-cell *matHeaderCellDef> Wartość netto </th>
-                        <td mat-cell *matCellDef="let element"> {{element.grossPrice}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="vat">
-                        <th mat-header-cell *matHeaderCellDef> VAT </th>
-                        <td mat-cell *matCellDef="let element"> {{element.vat}} </td>
                     </ng-container>
 
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

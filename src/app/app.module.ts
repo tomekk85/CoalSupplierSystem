@@ -1,32 +1,20 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { Routes, RouterModule} from '@angular/router';
-import { AppComponent } from './app.component';
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { AppRoutingModule, routingComponents } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { MaterialModule } from "./material/material.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material/material.module';
-import { WarehouseMainComponent } from './compontents/warehouse-main/warehouse-main.component';
-import { WarehouseStockComponent } from './compontents/warehouse-stock/warehouse-stock.component';
-import { WarehouseGrComponent } from './compontents/warehouse-gr/warehouse-gr.component';
-
-const routes: Routes = [
-  {path: '', redirectTo: 'warehouse', pathMatch: "full"},
-  {path: 'warehouse', component: WarehouseMainComponent},
-  {path: 'warehouse/stock', component: WarehouseStockComponent},
-  {path: 'warehouse/gr', component: WarehouseGrComponent}
-]
 
 @NgModule({
   declarations: [
     AppComponent,
-    WarehouseMainComponent,
-    WarehouseStockComponent,
-    WarehouseGrComponent
+    routingComponents
   ],
   imports: [
-    RouterModule.forRoot(routes),
     BrowserModule,
+    MaterialModule,
+    AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

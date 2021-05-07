@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-html, body { height: 100%;}
+html {
+    height: 100%;
+}
 * { 
     margin: 0; 
     padding: 0;
@@ -9,6 +11,7 @@ html, body { height: 100%;}
 
 body {
     background-color: rgb(250, 250, 250) !important;
+    height: 100%;
 }
 
 mat-sidenav-container {
@@ -32,15 +35,9 @@ mat-accordion mat-expansion-panel {
     margin-right: 10px;
 }
 
-.content {
-    align-items: center;
-    flex-wrap: wrap;
-    display: flex;
-    justify-content: center;
-}
-
 .my-nav {
     border-right: 1px inset rgba(30,30,30, .23);
+    height: 100%;
 }
 
 .user-container {

@@ -1,0 +1,36 @@
+<div class="stock-main">
+    <h2>Stan magazynowy</h2>
+    <div class="data">
+      <mat-form-field>
+
+        <mat-label>Search <i class="fas fa-search"></i></mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Artice" #input>
+      </mat-form-field>
+
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      
+        <ng-container matColumnDef="index">
+          <th mat-header-cell *matHeaderCellDef> Indeks </th>
+          <td mat-cell *matCellDef="let element"> {{element.index}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Nazwa </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="amout">
+          <th mat-header-cell *matHeaderCellDef> Ilość </th>
+          <td mat-cell *matCellDef="let element"> {{element.amout}} </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching "{{input.value}}"</td>
+        </tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" class="mat-elevation-z8"></mat-paginator>
+    </div>
+</div>

@@ -5,15 +5,18 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { WarehouseMainComponent } from './compontents/warehouse-main/warehouse-main.component';
+import { WarehouseStockComponent } from './compontents/warehouse-stock/warehouse-stock.component';
 
 const routes: Routes = [
   {path: 'warehouse', component: WarehouseMainComponent},
+  {path: 'warehouse/stock', component: WarehouseStockComponent}
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    WarehouseMainComponent
+    WarehouseMainComponent,
+    WarehouseStockComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

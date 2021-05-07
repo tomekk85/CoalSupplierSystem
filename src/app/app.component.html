@@ -1,76 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoalSupplier</title>
-</head>
-<body>
-    <div class="d-flex p-0">
-        <div class="my-nav vh-100">
-            <div class="user-container">
-            </div>
-            <mat-sidenav-container>
-                <mat-list>
-                    <mat-accordion class="example-headers-align">
+
+<div class="d-flex p-0 h-100">
+    <div class="my-nav">
+        <div class="user-container">
+        </div>
+        <mat-sidenav-container>
+            <mat-list>
+                <mat-accordion class="example-headers-align">
+                    
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>     
+                    <mat-panel-title>
+                        <mat-list-item routerLink="warehouse">
+                            <div class="icon"><i class="fas fa-warehouse"></i></div>
+                            Magazyn
+                        </mat-list-item>
+                    </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <mat-list>
+                        <mat-list-item><a mat-raised-button color="primary" routerLink="warehouse/stock">Zasób</a></mat-list-item>
+                        <mat-list-item><a mat-raised-button color="primary">PZ</a></mat-list-item>
+                        <mat-list-item><a mat-raised-button color="primary">WZ</a></mat-list-item>
+                        <mat-list-item><a mat-raised-button color="primary">Raporty</a></mat-list-item>
+                    </mat-list>
+                </mat-expansion-panel>  
+
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>     
+                    <mat-panel-title>
+                        <a>
+                            <mat-list-item>
+                                <div class="icon"><i class="fas fa-users"></i></div>
+                                Klienci
+                            </mat-list-item>
+                        </a>
+                    </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <mat-list>
                         
-                    <mat-expansion-panel>
-                        <mat-expansion-panel-header>     
-                        <mat-panel-title>
-                            <a routerLink="warehouse">
-                                <mat-list-item>
-                                    <div class="icon"><i class="fas fa-warehouse"></i></div>
-                                    Magazyn
-                                </mat-list-item>
-                            </a>
-                        </mat-panel-title>
-                        </mat-expansion-panel-header>
-                        <mat-list>
-                            <mat-list-item><a mat-raised-button color="primary">Zasób</a></mat-list-item>
-                            <mat-list-item><a mat-raised-button color="primary">PZ</a></mat-list-item>
-                            <mat-list-item><a mat-raised-button color="primary">WZ</a></mat-list-item>
-                            <mat-list-item><a mat-raised-button color="primary">Raporty</a></mat-list-item>
-                        </mat-list>
-                    </mat-expansion-panel>  
+                    </mat-list>
+                </mat-expansion-panel>   
 
-                    <mat-expansion-panel>
-                        <mat-expansion-panel-header>     
-                        <mat-panel-title>
-                            <a>
-                                <mat-list-item>
-                                    <div class="icon"><i class="fas fa-users"></i></div>
-                                    Klienci
-                                </mat-list-item>
-                            </a>
-                        </mat-panel-title>
-                        </mat-expansion-panel-header>
-                        <mat-list>
-                            
-                        </mat-list>
-                    </mat-expansion-panel>   
+            <a mat-raised-button class="vw-bt">
+                <mat-list-item>
+                    <div class="icon"><i class="fas fa-coins"></i></div>
+                    Cennik
+                </mat-list-item>  
+            </a>
 
-                <a mat-raised-button class="vw-bt">
-                    <mat-list-item>
-                        <div class="icon"><i class="fas fa-coins"></i></div>
-                        Cennik
-                    </mat-list-item>  
-                </a>
+            <a mat-raised-button>
+                <mat-list-item>
+                    <div class="icon"><i class="fas fa-file-alt"></i></div>
+                    Faktura
+                </mat-list-item>
+            </a>
 
-                <a mat-raised-button>
-                    <mat-list-item>
-                        <div class="icon"><i class="fas fa-file-alt"></i></div>
-                        Faktura
-                    </mat-list-item>
-                </a>
-
-                </mat-accordion>
-                </mat-list>
-            </mat-sidenav-container>
-        </div>
-        <div class="container-fluid content">
-            <router-outlet></router-outlet>
-        </div>
+            </mat-accordion>
+            </mat-list>
+        </mat-sidenav-container>
     </div>
-</body>
-</html>
+    <div class="container-fluid">
+        <router-outlet></router-outlet>
+    </div>
+</div>

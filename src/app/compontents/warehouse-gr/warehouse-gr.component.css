@@ -1,0 +1,48 @@
+.gr-from {
+    box-sizing: content-box;
+    margin:10px;
+}
+
+i {
+    color: #3f51b5;
+}
+
+.gr-title {
+    text-align: center;
+    font-size: 28pt;
+    color: #3f51b5;
+    font-weight: bold;
+    margin:20px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    padding: 5px;
+}
+
+.add-provider-button, .add-article-button{
+    font-size: 28px;
+    margin-top: -50%;
+}
+
+.gr-info, .gr-provider-info, .gr-articles-info {
+    border: 3px solid #3f51b548;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    padding: 20px;
+}
+
+.short-input {
+    width: 150px;
+}
+
+.short-input-vat {
+    width: 80px;
+}
+
+.items{
+    width: 100%;
+}

@@ -1,0 +1,154 @@
+<div class="gr-main">
+    <h2 class="gr-title">Przyjęcie zewnętrzne</h2>
+
+    <form class="gr-from">
+        
+        <div class="gr-info">
+            <h2>Dokument</h2>
+            <table cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Data wystawienia</mat-label>
+                            <input matInput [matDatepicker]="picker">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Nr dokumentu</mat-label>
+                            <input matInput disabled value="PZ/070521">
+                        </mat-form-field>
+                    </td>
+                </tr>
+        </table>
+        </div>
+
+        <div class="gr-provider-info">
+            <h2>Dostawca</h2>
+            <table cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Dostawca</mat-label>
+                            <mat-select [formControl]="providerControl" name="provider">
+                              <mat-option>None</mat-option>
+                              <mat-option *ngFor="let provider of providers" [value]="provider">
+                                {{provider.nameMark}}
+                              </mat-option>
+                            </mat-select>                            
+                          </mat-form-field>
+                    </td>
+                    <td>
+                        <button mat-button class="add-provider-button"><i class="far fa-plus-square"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Nazwa</mat-label>
+                            <input matInput disabled value='{{providerControl.value.name}}'>
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field appearance="fill">
+                            <mat-label>NIP</mat-label>
+                            <input matInput type="number" disabled value='{{providerControl.value.nip}}'>
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="gr-articles-info">
+                <h2>Towary</h2>
+                <h3>Dodaj towar</h3>
+                <table cellspacing="0">
+                    <tr>
+                        <td>
+                            <mat-form-field appearance="fill">
+                                <mat-label>Materiał</mat-label>
+                                <input matInput #FAB>
+                            </mat-form-field>
+                        </td>
+                        <td>
+                            <mat-form-field appearance="fill">
+                                <mat-label>Nazwa</mat-label>
+                                <input matInput #NAME>
+                            </mat-form-field>
+                        </td>
+                        <td>
+                            <mat-form-field appearance="fill" class="short-input">
+                                <mat-label>Ilosc</mat-label>
+                                <input matInput type="number" #AMOUT>
+                            </mat-form-field>
+                        </td>
+                        <td>
+                            <mat-form-field appearance="fill" class="short-input">
+                                <mat-label>Cena netto</mat-label>
+                                <input matInput type="number" #NETTPRICE>
+                            </mat-form-field>
+                        </td>
+                        <td>
+                            <mat-form-field appearance="fill" class="short-input">
+                                <mat-label>Wartosc netto</mat-label>
+                                <input matInput type="number" #GROSSPRICE>
+                            </mat-form-field>
+                        </td>
+                        <td>
+                            <mat-form-field appearance="fill" class="short-input-vat">
+                                <mat-label>VAT</mat-label>
+                                <input #VAT matInput type="number">
+                            </mat-form-field>
+                        </td>
+                        <td>
+                            <button mat-button class="add-article-button" (click)="addData()"><i class="far fa-plus-square"></i></button>
+                        </td>
+                    </tr>
+                </table>
+
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 items">
+                    <ng-container matColumnDef="fab">
+                      <th mat-header-cell *matHeaderCellDef> Materiał </th>
+                      <td mat-cell *matCellDef="let element"> {{element.fab}} </td>
+                    </ng-container>
+                  
+                    <ng-container matColumnDef="name">
+                      <th mat-header-cell *matHeaderCellDef> Nazwa </th>
+                      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+                  
+                    <ng-container matColumnDef="amout">
+                      <th mat-header-cell *matHeaderCellDef> Ilość </th>
+                      <td mat-cell *matCellDef="let element"> {{element.amout}} </td>
+                    </ng-container>
+                  
+                    <ng-container matColumnDef="nettPrice">
+                      <th mat-header-cell *matHeaderCellDef> Cena netto </th>
+                      <td mat-cell *matCellDef="let element"> {{element.nettPrice}} </td>
+                    </ng-container>
+                  
+                    <ng-container matColumnDef="grossPrice">
+                        <th mat-header-cell *matHeaderCellDef> Wartość netto </th>
+                        <td mat-cell *matCellDef="let element"> {{element.grossPrice}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="vat">
+                        <th mat-header-cell *matHeaderCellDef> VAT </th>
+                        <td mat-cell *matCellDef="let element"> {{element.vat}} </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+                        (click)="selection.toggle(row)">
+                    </tr>
+
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="4">Brak artykułów</td>
+                      </tr>
+                  </table>
+            </div>
+    </form>
+</div>
+

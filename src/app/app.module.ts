@@ -6,17 +6,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { WarehouseMainComponent } from './compontents/warehouse-main/warehouse-main.component';
 import { WarehouseStockComponent } from './compontents/warehouse-stock/warehouse-stock.component';
+import { WarehouseGrComponent } from './compontents/warehouse-gr/warehouse-gr.component';
 
 const routes: Routes = [
+  {path: '', redirectTo: 'warehouse', pathMatch: "full"},
   {path: 'warehouse', component: WarehouseMainComponent},
-  {path: 'warehouse/stock', component: WarehouseStockComponent}
+  {path: 'warehouse/stock', component: WarehouseStockComponent},
+  {path: 'warehouse/gr', component: WarehouseGrComponent}
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
     WarehouseMainComponent,
-    WarehouseStockComponent
+    WarehouseStockComponent,
+    WarehouseGrComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

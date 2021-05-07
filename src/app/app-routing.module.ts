@@ -11,7 +11,8 @@ import {UserComponent} from './compontents/user/user.component';
 import {PageNotFoundComponent} from './compontents/page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  {path: '', component: SideNavComponent},
+  {path: '', redirectTo: '/sidenav', pathMatch: 'full'},
+  {path: 'sidenav', component: SideNavComponent},
   {path: 'newclient', component: NewClientComponent},
   {path: 'clientbase', component: BazaKlientComponent},
   {path: '**', component: PageNotFoundComponent}

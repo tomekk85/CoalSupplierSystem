@@ -1,12 +1,9 @@
 mat-sidenav-container {
-  height: 100%;
+  height: 100vh;
 }
 
 mat-sidenav {
-  background: lightblue;
   color: aliceblue;
+  background: lightblue;
 }
 
-.example-spacer {
-  flex: 1 1 auto;
-}

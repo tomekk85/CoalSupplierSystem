@@ -1,29 +1,17 @@
+<div>
+  <mat-sidenav-container>
+    <mat-sidenav [opened]="isOpen" mode="side">
+      <mat-nav-list>
+        <mat-accordion>
+          <app-user></app-user>
+          <app-warehouse></app-warehouse>
+          <app-client></app-client>
+          <app-faktura></app-faktura>
+          <app-cennik></app-cennik>
+        </mat-accordion>
+      </mat-nav-list>
+    </mat-sidenav>
+  </mat-sidenav-container>
+</div>
 
-<mat-sidenav-container>
-  <mat-sidenav [opened]="isOpen" mode="side">
-    <mat-nav-list>
-      <mat-accordion>
-        <app-user></app-user>
-        <app-warehouse></app-warehouse>
-        <app-client></app-client>
-        <app-faktura></app-faktura>
-        <app-cennik></app-cennik>
-      </mat-accordion>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-card>
-      <mat-card-title>
-      Aktywny uzytkownik
-      </mat-card-title>
-      <mat-card-content>
-        <p style="align-content: center">Jesteś zalogowany jako USER1</p>
-      </mat-card-content>
-      <mat-card-actions align="end">
-        <button mat-raised-button color="primary">log out</button>
-        <button mat-raised-button color="primary">change user</button>
-      </mat-card-actions>
-    </mat-card>
-  </mat-sidenav-content>
-</mat-sidenav-container>
 

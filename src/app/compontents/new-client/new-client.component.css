@@ -1,11 +1,7 @@
-.dane {
 
-
-}
 .form {
   min-width: 150px;
   max-width: 500px;
-  width: 100%;
 }
 mat-form-field {
   width: 100%;

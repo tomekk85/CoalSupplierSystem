@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { SideNavComponent } from "./compontents/side-nav/side-nav.component";
 import { WarehouseGrComponent } from "./compontents/warehouse-gr/warehouse-gr.component";
 import { WarehouseMainComponent } from "./compontents/warehouse-main/warehouse-main.component";
 import { WarehouseStockComponent } from "./compontents/warehouse-stock/warehouse-stock.component";
@@ -23,5 +22,4 @@ export const routingComponents = [
     WarehouseGrComponent,
     WarehouseMainComponent,
     WarehouseStockComponent,
-    SideNavComponent
 ]

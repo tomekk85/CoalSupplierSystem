@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 html {
     height: 100%;
-    overflow: hidden;
 }
 * { 
     margin: 0; 
@@ -13,8 +12,4 @@ html {
 body {
     background-color: rgb(250, 250, 250) !important;
     height: 100%;
-}
-
-.main-content {
-    overflow: auto;
 }

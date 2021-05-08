@@ -1,8 +1,9 @@
 mat-sidenav-container {
-    height: 100vh;
+    height: 100%;
     max-width: 260px;
     text-align: center;
     border-right: 1px inset rgba(30,30,30, .23);
+    padding:40px 20px 20px 20px;
 }
 
 mat-accordion mat-expansion-panel, .mat-raised-button{
@@ -18,9 +19,4 @@ mat-accordion mat-expansion-panel {
 .icon {
     width: 25px;
     margin-right: 10px;
-}
-
-.user-container {
-    height: 250px;
-    background-color: rgb(30,30,30);
 }

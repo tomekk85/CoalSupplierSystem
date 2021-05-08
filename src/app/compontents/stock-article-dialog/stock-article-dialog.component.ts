@@ -2,20 +2,20 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
 import { Article } from 'src/app/common/article';
 import { ArticleService } from 'src/app/services/article.service';
 
-
 @Component({
-  selector: 'app-warehouse-stock',
-  templateUrl: './warehouse-stock.component.html',
-  styleUrls: ['./warehouse-stock.component.css']
+  selector: 'app-stock-article-dialog',
+  templateUrl: './stock-article-dialog.component.html',
+  styleUrls: ['./stock-article-dialog.component.css']
 })
-export class WarehouseStockComponent implements OnInit {
-  displayedColumns: string[] = ['index', 'name', 'amout'];
+export class StockArticleDialogComponent implements OnInit {
+  displayedColumns: string[] = ['index', 'name', 'amout', 'select'];
   dataSource: MatTableDataSource<Article>;
-
+  selection: SelectionModel<Article> = new SelectionModel<Article>(true, []);
+  
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
@@ -44,4 +44,14 @@ export class WarehouseStockComponent implements OnInit {
     }
   }
 
+  showSelection() {
+    console.log(this.selection);
+  }
+
 }
+
+
+
+  
+
+  

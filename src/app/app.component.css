@@ -1,0 +1,13 @@
+.main-content {
+    overflow: auto;
+}
+
+.main {
+    height: calc(100% - 60px);
+}
+
+.nav-bar {
+    height: 60px;
+    background-color: rebeccapurple;
+    width: 100vw;
+}

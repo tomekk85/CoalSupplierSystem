@@ -1,19 +1,15 @@
-import { SelectionModel } from '@angular/cdk/collections';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatDialog} from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
+import { Article } from 'src/app/common/article';
+import { StockArticleDialogComponent } from '../stock-article-dialog/stock-article-dialog.component';
 
 interface Provider {
   nip: number;
   name: string;
   id: number;
   nameMark: string;
-}
-
-export interface GRItem {
-  fab: number;
-  name: string;
-  amout: number;
 }
 
 @Component({
@@ -23,10 +19,17 @@ export interface GRItem {
 })
 
 export class WarehouseGrComponent implements OnInit {
-  displayedColumns: string[] = ["fab", "name", "amout"];
-  selection = new SelectionModel<GRItem>(true, []);
-  items : GRItem[] = [];
-  dataSource: MatTableDataSource<GRItem> = new MatTableDataSource(this.items);
+  displayedColumns: string[] = ["index", "name", "amout"];
+  items : Article[] = [];  
+  dataSource: MatTableDataSource<Article>;
+  selectedItems : Article[] = [new Article];
+  itemsExists: boolean = false;
+
+  @ViewChild('INDEX') _index: ElementRef;
+  @ViewChild('NAME') _name: ElementRef;
+  @ViewChild('AMOUT') _amout: ElementRef;
+
+  addItem : Article;
 
   form: FormGroup;
   providers: Provider[] = [
@@ -38,33 +41,40 @@ export class WarehouseGrComponent implements OnInit {
 
   providerControl = new FormControl(this.providers[0].nameMark);
 
-  @ViewChild('FAB') _fab: ElementRef;
-  @ViewChild('NAME') _name: ElementRef;
-  @ViewChild('AMOUT') _amout: ElementRef;
-
-
-  constructor() { 
+  constructor(public dialog: MatDialog) { 
     this.form = new FormGroup({provider: this.providerControl});
   }
 
   ngOnInit(): void {
   }
 
-  addData(){
-    let addItem : GRItem = {
-      fab: this._fab.nativeElement.value,
+  @ViewChildren('AMOUT') amout : QueryList<ElementRef>;
+  addData(index){
+    
+    let addItem : Article = {
+      index: this._index.nativeElement.value,
       name: this._name.nativeElement.value,
-      amout: this._amout.nativeElement.value
+      amout: this.amout.toArray()[index].nativeElement.value
     }
+
+    console.log(this.amout.toArray());
+
+    this.selectedItems.splice(index,1);
+
     this.items.push(addItem);
     this.dataSource = new MatTableDataSource(this.items);
-    this.clearInput();
   }
 
-  clearInput() {
-    this._fab.nativeElement.value = "";
-    this._name.nativeElement.value = "";
-    this._amout.nativeElement.value = "";
-  }
+  openDialog(): void {
+    const dialogRef = this.dialog.open(StockArticleDialogComponent, {
+      width: '80%',
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      if(result != null || result != undefined){
+        this.selectedItems = result.selected;
+        this.itemsExists = true; 
+      }
+    });
+  } 
 }

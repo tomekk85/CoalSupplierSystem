@@ -4,9 +4,12 @@ import { AppRoutingModule, routingComponents } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { MaterialModule } from "./material/material.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ArticleTableComponent } from './compontents/article-table/article-table.component';
-import { SideNavComponent } from "./compontents/side-nav/side-nav.component";
-import { StockArticleDialogComponent } from './compontents/stock-article-dialog/stock-article-dialog.component';
+import { ArticleTableComponent } from "./components/article-table/article-table.component";
+import { SideNavComponent } from "./components/side-nav/side-nav.component";
+import { StockArticleDialogComponent } from "./components/stock-article-dialog/stock-article-dialog.component";
+import { HttpClientModule } from "@angular/common/http";
+import { CommodityService } from "./services/commodity.service";
+import { PriceListComponent } from './components/price-list/price-list.component';
 
 @NgModule({
   declarations: [
@@ -14,15 +17,17 @@ import { StockArticleDialogComponent } from './compontents/stock-article-dialog/
     routingComponents,
     ArticleTableComponent,
     SideNavComponent,
-    StockArticleDialogComponent
+    StockArticleDialogComponent,
+    PriceListComponent
   ],
   imports: [
     BrowserModule,
     MaterialModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [CommodityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

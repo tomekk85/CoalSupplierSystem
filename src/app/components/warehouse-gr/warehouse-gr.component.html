@@ -41,7 +41,7 @@
                           </mat-form-field>
                     </td>
                     <td>
-                        <button mat-button class="add-provider-button"><i class="fas fa-clipboard-list"></i></button>
+                        <button mat-button class="add-provider-button"><mat-icon>add</mat-icon></button>
                     </td>
                 </tr>
                 <tr>
@@ -63,13 +63,13 @@
 
         <div class="gr-articles-info">
                 <h2>Towary</h2>
-                <h3>Dodaj towar <button mat-button class="add-provider-button" (click)="openDialog()"><i class="fas fa-clipboard-list"></i></button></h3>
+                <h3>Dodaj towar <button mat-button class="add-provider-button" (click)="openDialog()"><mat-icon>zoom_in</mat-icon></button></h3>
                 <table cellspacing="0" *ngIf="itemsExists">
                     <tr *ngFor="let selectedItem of selectedItems; index as i">
                         <td>
                             <mat-form-field appearance="fill">
-                                <mat-label>Indeks</mat-label>
-                                <input matInput #INDEX  disabled value="{{selectedItem.index}}">
+                                <mat-label>Kod produktu</mat-label>
+                                <input matInput #INDEX  disabled value="{{selectedItem.code}}">
                             </mat-form-field>
                         </td>
                         <td>
@@ -85,7 +85,7 @@
                             </mat-form-field>
                         </td>
                         <td>
-                            <button mat-button class="add-article-button" (click)="addData(i)"><i class="far fa-plus-square"></i></button>
+                            <button mat-button class="add-article-button" (click)="addData(i)"><mat-icon>add</mat-icon></button>
                         </td>
                     </tr>
                 </table>

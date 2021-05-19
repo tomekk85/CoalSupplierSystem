@@ -3,11 +3,13 @@
 }
 
 .main {
-    height: calc(100% - 60px);
+    height: calc(100% - 64px);
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.nav-bar {
-    height: 60px;
-    background-color: rebeccapurple;
-    width: 100vw;
+mat-card {
+    flex-grow: 1;
+    height: 100%;
+    overflow: auto;
 }

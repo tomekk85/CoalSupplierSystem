@@ -5,7 +5,9 @@ mat-card {
     margin: 20px;
 }
 
-mat-card-content i{
+mat-icon{
+    height: fit-content;
+    width: fit-content;
     font-size:80px;
 }
 

@@ -1,7 +1,7 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { Article } from 'src/app/common/article';
+import { Commodity } from 'src/app/common/commodity';
 
 @Component({
   selector: 'app-article-table',
@@ -10,13 +10,13 @@ import { Article } from 'src/app/common/article';
 })
 export class ArticleTableComponent implements OnInit {
   @Input()
-  displayedColumns: string[];
+  displayedColumns: string[] = [];
 
   @Input()
   dataSource: MatTableDataSource<any>;
 
   @Input()
-  selection: SelectionModel<Article>;
+  selection: SelectionModel<any>;
 
   constructor() { }
 
@@ -37,7 +37,7 @@ export class ArticleTableComponent implements OnInit {
   }
 
   /** The label for the checkbox on the passed row */
-  checkboxLabel(row?: Article): string {
+  checkboxLabel(row?: any): string {
     if (!row) {
       return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
     }

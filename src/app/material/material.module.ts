@@ -15,6 +15,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatDialogModule } from '@angular/material/dialog';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 const MaterialComponents = [
   MatSidenavModule,
@@ -33,7 +34,8 @@ const MaterialComponents = [
   FormsModule,
   ReactiveFormsModule,
   MatDialogModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatToolbarModule
 ];
 
 @NgModule({

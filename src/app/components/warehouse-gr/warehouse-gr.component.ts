@@ -1,8 +1,9 @@
+import { SelectionModel } from '@angular/cdk/collections';
 import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog} from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
-import { Article } from 'src/app/common/article';
+import { CommodityDTO } from 'src/app/common/commodity-dto';
 import { StockArticleDialogComponent } from '../stock-article-dialog/stock-article-dialog.component';
 
 interface Provider {
@@ -19,17 +20,18 @@ interface Provider {
 })
 
 export class WarehouseGrComponent implements OnInit {
-  displayedColumns: string[] = ["index", "name", "amout"];
-  items : Article[] = [];  
-  dataSource: MatTableDataSource<Article>;
-  selectedItems : Article[] = [new Article];
+  displayedColumns: string[] = ["code", "name", "amout"];
+  items : CommodityDTO[] = [];  
+  dataSource: MatTableDataSource<CommodityDTO>;
+  selectedItems : CommodityDTO[] = [new CommodityDTO];
   itemsExists: boolean = false;
+  selection: SelectionModel<CommodityDTO> = new SelectionModel<CommodityDTO>(true, []);
 
   @ViewChild('INDEX') _index: ElementRef;
   @ViewChild('NAME') _name: ElementRef;
   @ViewChild('AMOUT') _amout: ElementRef;
 
-  addItem : Article;
+  addItem : CommodityDTO;
 
   form: FormGroup;
   providers: Provider[] = [
@@ -51,13 +53,11 @@ export class WarehouseGrComponent implements OnInit {
   @ViewChildren('AMOUT') amout : QueryList<ElementRef>;
   addData(index){
     
-    let addItem : Article = {
-      index: this._index.nativeElement.value,
+    let addItem : CommodityDTO = {
+      code: this._index.nativeElement.value,
       name: this._name.nativeElement.value,
       amout: this.amout.toArray()[index].nativeElement.value
     }
-
-    console.log(this.amout.toArray());
 
     this.selectedItems.splice(index,1);
 
@@ -65,9 +65,14 @@ export class WarehouseGrComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.items);
   }
 
+
+
   openDialog(): void {
     const dialogRef = this.dialog.open(StockArticleDialogComponent, {
       width: '80%',
+      data: {
+        selection: this.selection,
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {

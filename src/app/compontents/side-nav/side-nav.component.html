@@ -1,17 +1,147 @@
-<div>
-  <mat-sidenav-container>
-    <mat-sidenav [opened]="isOpen" mode="side">
-      <mat-nav-list>
-        <mat-accordion>
-          <app-user></app-user>
-          <app-warehouse></app-warehouse>
-          <app-client></app-client>
-          <app-faktura></app-faktura>
-          <app-cennik></app-cennik>
-        </mat-accordion>
-      </mat-nav-list>
-    </mat-sidenav>
-  </mat-sidenav-container>
-</div>
+<mat-sidenav-container>
+  <mat-sidenav [opened]="isOpen" mode="side">
+    <mat-nav-list>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-list>
+                <mat-list-item>
+                  <div class="icon">
+                    <mat-icon>storage</mat-icon>
+                  </div>
+                  Magazyn
+                </mat-list-item>
+              </mat-list>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-list>
+            <mat-list-item>
+              <a mat-raised-button color="primary" routerLink="/stock">Stan magazynowy</a>
+            </mat-list-item>
+            <mat-list-item>
+              <a mat-raised-button color="primary" routerLink="/pz">PZ</a>
+            </mat-list-item>
+            <mat-list-item>
+              <a mat-raised-button color="primary" routerLinkActive="active">WZ</a>
+            </mat-list-item>
+          </mat-list>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-list>
+                <mat-list-item>
+                  <div class="icon">
+                    <mat-icon>people</mat-icon>
+                  </div>
+                  Klienci
+                </mat-list-item>
+              </mat-list>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-list>
+            <mat-list-item>
+              <a mat-raised-button color="primary" routerLink="/newclient" routerLinkActive="active">Nowy</a>
+            </mat-list-item>
+            <mat-list-item>
+              <a mat-raised-button color="primary" routerLink="/clientbase">Edycja</a>
+            </mat-list-item>
+            <mat-list-item>
+              <a mat-raised-button color="primary" routerLink="/clientbase">Usuń</a>
+            </mat-list-item>
+            <mat-list-item>
+              <a mat-raised-button color="primary" routerLink="/clientbase">Baza</a>
+            </mat-list-item>
+          </mat-list>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-list>
+                <mat-list-item>
+                  <div class="icon">
+                    <mat-icon>local_shipping</mat-icon>
+                  </div>
+                  Dostawcy
+                </mat-list-item>
+              </mat-list>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-list>
+            <mat-list-item>
+              <a mat-raised-button color="primary" routerLink="/newsupplier" routerLinkActive="active">Nowy</a>
+            </mat-list-item>
+            <mat-list-item>
+              <a mat-raised-button color="primary" routerLink="/supplierbase">Edycja</a>
+            </mat-list-item>
+            <mat-list-item>
+              <a mat-raised-button color="primary" routerLink="/supplierbase">Usuń</a>
+            </mat-list-item>
+            <mat-list-item>
+              <a mat-raised-button color="primary" routerLink="/supplierbase">Baza</a>
+            </mat-list-item>
+          </mat-list>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-list>
+                <mat-list-item>
+                  <div class="icon">
+                    <mat-icon>receipt</mat-icon>
+                  </div>
+                  Faktura
+                </mat-list-item>
+              </mat-list>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-list>
+            <mat-list-item>
+              <a mat-raised-button color="primary">Nowa</a>
+            </mat-list-item>
+            <mat-list-item>
+              <a mat-raised-button color="primary">Rejestr</a>
+            </mat-list-item>
+          </mat-list>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-list>
+                <mat-list-item>
+                  <a mat-raised-button color="primary" routerLink="/price">
+                    <div class="icon">
+                      <mat-icon>request_quote</mat-icon>
+                    </div>
+                    Cennik
+                  </a>
+                </mat-list-item>
+              </mat-list>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-list>
+            <mat-list-item>
+              <a mat-raised-button color="primary">
+                dummy content
+              </a>
+            </mat-list-item>
+          </mat-list>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-nav-list>
+  </mat-sidenav>
+</mat-sidenav-container>
+
+
+
+
+
+
+
+
+
+
+
 
 

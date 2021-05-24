@@ -1,19 +1,16 @@
 <mat-toolbar color="primary">
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" routerLink="/sidenav">
-    <mat-icon (click)="toggle()">menu</mat-icon>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
   </button>
   <span>Coal Supplier System</span>
   <span class="example-spacer"></span>
   <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-    <mat-icon>favorite</mat-icon>
-  </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <mat-icon>share</mat-icon>
+    <mat-icon>account_circle</mat-icon>
   </button>
 </mat-toolbar>
-<div class="pojemnik">
-  <app-side-nav></app-side-nav>
-  <router-outlet></router-outlet>
+<div class="content">
+    <app-side-nav></app-side-nav>
+    <mat-card>
+      <router-outlet></router-outlet>
+    </mat-card>
 </div>
-
-

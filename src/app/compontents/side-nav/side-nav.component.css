@@ -1,9 +1,28 @@
 mat-sidenav-container {
-  height: 100vh;
+  height: 100%;
+  text-align: center;
+  border-right: 1px inset rgba(30,30,30, .23);
 }
 
 mat-sidenav {
   color: aliceblue;
-  background: lightblue;
+  background-color: dodgerblue;
 }
 
+a {
+  margin: auto;
+  width: 100px;
+}
+
+a.mat-raised-button {
+  width: calc(100% - 10px);
+  margin: 5px;
+}
+
+mat-expansion-panel {
+  margin: 5px;
+}
+.icon{
+  width: 25px;
+  margin-right: 10px
+}

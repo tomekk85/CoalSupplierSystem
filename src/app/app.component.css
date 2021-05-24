@@ -1,6 +1,14 @@
 .example-spacer {
   flex: 1 1 auto;
 }
-.pojemnik {
-display: inline-flex;
+
+.content {
+  display: flex;
+  height: calc(100% - 64px);
+}
+
+mat-card {
+  flex-grow: 1;
+  height: 100%;
+  overflow: auto;
 }

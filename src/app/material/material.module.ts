@@ -1,4 +1,3 @@
-// @ts-ignore
 import {NgModule} from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
@@ -15,7 +14,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 const MaterialComponents = [
   MatSidenavModule,
@@ -32,7 +31,8 @@ const MaterialComponents = [
   MatSelectModule,
   MatRadioModule,
   MatSortModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatCheckboxModule,
 ];
 
 @NgModule({

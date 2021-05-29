@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Grdto } from '../common/grdto';
 import { GoodsReceipt } from '../components/warehouse-gr/warehouse-gr.component';
 
 @Injectable({
@@ -14,5 +15,9 @@ export class GoodsReceiptService {
 
   addGR(gr: GoodsReceipt) {
     return this.httpClient.post<GoodsReceipt>(this.baseUrl, gr);
+  }
+
+  findAll():Observable<Grdto[]> {
+    return this.httpClient.get<Grdto[]>(this.baseUrl);
   }
 }

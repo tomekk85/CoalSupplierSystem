@@ -6,3 +6,7 @@ table {
 .select-row {
     width: 60px;
 }
+
+mat-icon {
+    cursor:pointer;
+}

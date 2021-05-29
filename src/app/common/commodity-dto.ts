@@ -1,5 +1,6 @@
 export class CommodityDTO {
+    id: number;
     name: string;
     code: string;
-    amout: number;
+    amount: number;
 }

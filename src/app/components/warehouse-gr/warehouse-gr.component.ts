@@ -1,17 +1,17 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import {formatDate} from '@angular/common';
 import { MatDialog} from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
-import { CommodityDTO } from 'src/app/common/commodity-dto';
+import { CommodityDTO} from 'src/app/common/commodity-dto';
+import { SupplierDTO } from 'src/app/common/supplier-dto';
+import { SupplierService } from 'src/app/services/supplier.service';
 import { StockArticleDialogComponent } from '../stock-article-dialog/stock-article-dialog.component';
-
-interface Provider {
-  nip: number;
-  name: string;
-  id: number;
-  nameMark: string;
-}
+import { GoodsReceiptService } from 'src/app/services/goodsReceipt.service';
+import { StockItem } from 'src/app/common/stock-item';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-warehouse-gr',
@@ -23,40 +23,73 @@ export class WarehouseGrComponent implements OnInit {
   displayedColumns: string[] = ["code", "name", "amout"];
   items : CommodityDTO[] = [];  
   dataSource: MatTableDataSource<CommodityDTO>;
-  selectedItems : CommodityDTO[] = [new CommodityDTO];
+  selectedItems : CommodityDTO[] = [];
   itemsExists: boolean = false;
   selection: SelectionModel<CommodityDTO> = new SelectionModel<CommodityDTO>(true, []);
 
   @ViewChild('INDEX') _index: ElementRef;
   @ViewChild('NAME') _name: ElementRef;
-  @ViewChild('AMOUT') _amout: ElementRef;
+  @ViewChild('ITEMID') _itemid: ElementRef;
 
   addItem : CommodityDTO;
 
   form: FormGroup;
-  providers: Provider[] = [
-    {id: 1, nameMark: "RafiqTransport", nip: 20392240982, name: "Shymmi Transport sp. Z.O.O"},
-    {id: 2, nameMark: "BusTransport", nip: 20392240982, name: "Bus Transport sp. Z.O.O"},
-    {id: 3, nameMark: "DHL", nip: 20392240982, name: "DHL sth sp. Z.O.O"},
-    {id: 4, nameMark: "DPD", nip: 20392240982, name: "DPD sth sp. Z.O.O"}
-  ]
+  suppliers: SupplierDTO[] = [<SupplierDTO>{}];
 
-  providerControl = new FormControl(this.providers[0].nameMark);
+  providerControl: FormControl = new FormControl(new SupplierDTO);
 
-  constructor(public dialog: MatDialog) { 
-    this.form = new FormGroup({provider: this.providerControl});
+  constructor(public dialog: MatDialog, private supplierService: SupplierService, 
+              public fb: FormBuilder, private goodReceiptService: GoodsReceiptService, private _snackBar: MatSnackBar, private router: Router) { 
+    this.form = this.fb.group({
+      dateOfIssue: "",
+      issuer: "Admin",
+      supplier: new FormControl(this.suppliers[0]),
+    }) 
   }
 
   ngOnInit(): void {
+    this.supplierService.getAllSuppliers().subscribe(data => {
+       this.suppliers = data;
+    })
+  }
+
+  saveGr(){
+    var formData: GoodsReceipt = {
+      "dateOfIssue": formatDate(this.form.value.dateOfIssue,'yyyy-MM-dd', 'en-US'),
+      "issuer": this.form.value.issuer,
+      "supplier": this.form.value.supplier,
+      "items": this.items.map((item) => {
+        return new StockItem(item.amount,item)
+      })
+    }
+
+    this.goodReceiptService.addGR(formData).subscribe(
+        (response) => {
+          this.userNotification("Pomyślnie wystawiono dokument","success"),
+          this.router.navigate(['/warehouse/stock'])
+        },
+        (error) => {
+          this.userNotification("Błąd podczas wystawiania dokumentu","error")
+        }
+      );
+  }
+
+  userNotification(message, type) {
+    this._snackBar.open(message,null, {
+      duration: 2600,
+      panelClass: type,
+      verticalPosition: "top"
+    })
   }
 
   @ViewChildren('AMOUT') amout : QueryList<ElementRef>;
   addData(index){
     
     let addItem : CommodityDTO = {
+      id: this._itemid.nativeElement.value,
       code: this._index.nativeElement.value,
       name: this._name.nativeElement.value,
-      amout: this.amout.toArray()[index].nativeElement.value
+      amount: this.amout.toArray()[index].nativeElement.value
     }
 
     this.selectedItems.splice(index,1);
@@ -65,9 +98,8 @@ export class WarehouseGrComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.items);
   }
 
-
-
   openDialog(): void {
+    this.selection = new SelectionModel<CommodityDTO>(true, []);
     const dialogRef = this.dialog.open(StockArticleDialogComponent, {
       width: '80%',
       data: {
@@ -78,8 +110,15 @@ export class WarehouseGrComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if(result != null || result != undefined){
         this.selectedItems = result.selected;
-        this.itemsExists = true; 
+        this.itemsExists = true;
       }
     });
   } 
+}
+
+export interface GoodsReceipt {
+  dateOfIssue: string
+  issuer: string,
+  supplier: SupplierDTO
+  items: StockItem[]
 }

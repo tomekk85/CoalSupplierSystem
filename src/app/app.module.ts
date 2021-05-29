@@ -10,6 +10,7 @@ import { StockArticleDialogComponent } from "./components/stock-article-dialog/s
 import { HttpClientModule } from "@angular/common/http";
 import { CommodityService } from "./services/commodity.service";
 import { PriceListComponent } from './components/price-list/price-list.component';
+import { SupplierService } from "./services/supplier.service";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { PriceListComponent } from './components/price-list/price-list.component
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [CommodityService],
+  providers: [CommodityService, SupplierService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

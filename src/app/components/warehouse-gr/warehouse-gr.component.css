@@ -39,3 +39,14 @@ td {
     margin-bottom: 5px;
     padding: 20px;
 }
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.action-buttons button:not(:first-of-type) {
+    background-color: rgb(36, 201, 66);
+    margin-left: 10px;
+}

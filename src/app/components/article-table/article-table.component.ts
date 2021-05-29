@@ -18,9 +18,16 @@ export class ArticleTableComponent implements OnInit {
   @Input()
   selection: SelectionModel<any>;
 
+  @Output()
+  selectRow: EventEmitter<Commodity> = new EventEmitter<Commodity>();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  doClick(row){
+    this.selectRow.emit(row);
   }
 
   isAllSelected() {

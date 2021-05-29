@@ -5,7 +5,6 @@
 .main {
     height: calc(100% - 64px);
     display: flex;
-    flex-wrap: wrap;
 }
 
 mat-card {

@@ -7,8 +7,64 @@
         <input matInput (keyup)="applyFilter($event)" placeholder="Artice" #input>
       </mat-form-field>
 
-      <app-article-table [dataSource]="dataSource" [displayedColumns]="displayedColumns" [selection]="selection"></app-article-table>
+      <app-article-table [dataSource]="dataSource" 
+                         [displayedColumns]="displayedColumns" 
+                         [selection]="selection"
+                         (selectRow)="editItem($event)"></app-article-table>
     
       <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" class="mat-elevation-z8"></mat-paginator>
+    </div>
+
+    <div *ngIf="!edit">
+      <button mat-raised-button color="primary" (click)="addOrEdit()" class="edit">
+        <mat-icon>create</mat-icon>
+        Edytuj
+      </button>
+    </div>
+
+    <div class="new-item" [formGroup]="form" *ngIf="edit">
+        <input type="hidden" formControlName="id">
+
+        <mat-form-field appearance="fill">
+          <mat-label>Kod produktu</mat-label>
+          <input matInput placeholder="Kod produktu" formControlName="code">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Nazwa</mat-label>
+          <input matInput placeholder="Nazwa" formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Cena</mat-label>
+          <input matInput type="number" placeholder="Cena" formControlName="price">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Jednostka</mat-label>
+          <mat-select formControlName="unit">
+            <mat-option value="kg">kg</mat-option>
+            <mat-option value="t">t</mat-option>
+            <mat-option value="szt">szt</mat-option>
+            <mat-option value="m">m</mat-option>
+            <mat-option value="m2">m<sup>2</sup></mat-option>
+            <mat-option value="m3">m<sup>3</sup></mat-option>
+          </mat-select>
+        </mat-form-field>
+      
+        <div *ngIf="!updateItem" class="form-action">
+          <button mat-raised-button color="primary" (click)="addUpdateCommodity()">Dodaj</button>
+          <button mat-icon-button color="warn" (click)="clearForm()">
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </div>
+
+        <div *ngIf="updateItem" class="form-action">
+          <button mat-raised-button color="primary" (click)="addUpdateCommodity()">Edytuj</button>
+          <button mat-raised-button color="warn" (click)="deleteCommodity()">Usuń</button>
+          <button mat-icon-button color="warn" (click)="clearForm()">
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </div>
     </div>
 </div>

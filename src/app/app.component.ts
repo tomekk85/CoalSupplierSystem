@@ -10,8 +10,4 @@ export class AppComponent {
 
   constructor() {
   }
-
-  /*toggle(): void {
-    this.dataService.toggle();
-  }*/
 }

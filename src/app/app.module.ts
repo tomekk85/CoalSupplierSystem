@@ -17,9 +17,9 @@ import { SupplierService } from "./services/supplier.service";
     AppComponent,
     routingComponents,
     ArticleTableComponent,
-    SideNavComponent,
     StockArticleDialogComponent,
-    PriceListComponent
+    PriceListComponent,
+    SideNavComponent,
   ],
   imports: [
     BrowserModule,

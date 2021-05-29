@@ -1,0 +1,80 @@
+<div class="wrap_clients">
+  <h2>Nowy Klient</h2>
+  <div>
+    <mat-card class="data">
+      <mat-card-title>Podstawowe dane</mat-card-title>
+      <mat-card-content>
+        <form>
+          <mat-form-field appearance="fill">
+            <mat-label>Nazwa</mat-label>
+            <input matInput>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Imię</mat-label>
+            <input matInput>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Nazwisko</mat-label>
+            <input matInput>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Pesel</mat-label>
+            <input matInput type="number">
+            <mat-hint align="end">Min 11 characters</mat-hint>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>NIP</mat-label>
+            <input matInput>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>REGON</mat-label>
+            <input matInput>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>BDO</mat-label>
+            <input matInput>
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="contacts">
+      <mat-card-title>Dane Kontaktowe</mat-card-title>
+      <mat-card-content>
+        <form class="contact">
+          <mat-form-field appearance="outline">
+            <mat-label>kod pocztowy</mat-label>
+            <input matInput placeholder="00-000">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>miejscowość</mat-label>
+            <input matInput>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>ulica</mat-label>
+            <input matInput>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>nr domu</mat-label>
+            <input matInput type="number" >
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>nr mieszkania</mat-label>
+            <input matInput type="number">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>telefon</mat-label>
+            <input matInput placeholder="+00 000-000-000">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>e-mail</mat-label>
+            <input matInput type="email" placeholder="pat@example.com">
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-raised-button type="reset" color="primary">Nowy</button>
+        <button mat-raised-button type="submit" color="primary">Zapisz</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

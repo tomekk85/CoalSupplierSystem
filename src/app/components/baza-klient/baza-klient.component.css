@@ -1,0 +1,10 @@
+.baza_client {
+  width: 100%;
+}
+table {
+  width: 100%;
+}
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+  padding: 10px;
+}
+

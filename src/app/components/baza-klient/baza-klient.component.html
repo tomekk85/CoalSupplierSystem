@@ -1,0 +1,130 @@
+<link rel="stylesheet" href="baza-klient.component.css">
+<div class="baza_client">
+  <mat-form-field>
+    <mat-label>Szukaj</mat-label>
+    <input matInput (keyup)="applyFilter($event)" #input>
+  </mat-form-field>
+  <div class="mat-elevation-z8">
+    <div class="table-bordered">
+      <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sort">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="id">Id</th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <!-- Firma Column -->
+        <ng-container matColumnDef="company">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="company">Firma</th>
+          <td mat-cell *matCellDef="let element"> {{element.company}} </td>
+        </ng-container>
+
+        <!-- Imie Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="name"> Imie</th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- Nazwisko Column -->
+        <ng-container matColumnDef="surname">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="surname"> Nazwisko</th>
+          <td mat-cell *matCellDef="let element"> {{element.surname}} </td>
+        </ng-container>
+
+        <!-- Pesel Column -->
+        <ng-container matColumnDef="pesel">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="pesel"> Pesel</th>
+          <td mat-cell *matCellDef="let element"> {{element.pesel}} </td>
+        </ng-container>
+
+        <!-- Nip Column -->
+        <ng-container matColumnDef="nip">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="nip"> Nip</th>
+          <td mat-cell *matCellDef="let element"> {{element.nip}} </td>
+        </ng-container>
+
+        <!-- Regon Column -->
+        <ng-container matColumnDef="regon">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="regon"> Regon</th>
+          <td mat-cell *matCellDef="let element"> {{element.regon}} </td>
+        </ng-container>
+
+        <!-- BDO Column -->
+        <ng-container matColumnDef="bdo">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="bdo"> BDO</th>
+          <td mat-cell *matCellDef="let element"> {{element.bdo}} </td>
+        </ng-container>
+
+        <!-- Kod pocztowy Column -->
+        <ng-container matColumnDef="postal_code">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="zip_code"> kod pocztowy</th>
+          <td mat-cell *matCellDef="let element"> {{element.postal_code}} </td>
+        </ng-container>
+
+        <!-- Miejscowosc Column -->
+        <ng-container matColumnDef="city">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="city"> Miejscowość</th>
+          <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+        </ng-container>
+
+        <!-- Ulica Column -->
+        <ng-container matColumnDef="street">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="street"> Ulica</th>
+          <td mat-cell *matCellDef="let element"> {{element.street}} </td>
+        </ng-container>
+
+        <!-- Nr domu Column -->
+        <ng-container matColumnDef="house_nr">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="house_nr"> Nr domu</th>
+          <td mat-cell *matCellDef="let element"> {{element.house_nr}} </td>
+        </ng-container>
+
+        <!-- Nr mieszkania Column -->
+        <ng-container matColumnDef="flat_nr">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="flat_nr"> Nr mieszkania</th>
+          <td mat-cell *matCellDef="let element"> {{element.flat_nr}} </td>
+        </ng-container>
+
+        <!-- Telefon Column -->
+        <ng-container matColumnDef="phone_nr">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="phone_nr"> Telefon</th>
+          <td mat-cell *matCellDef="let element"> {{element.phone_nr}} </td>
+        </ng-container>
+
+        <!-- E-mail Column -->
+        <ng-container matColumnDef="mail">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="mail"> e-mail</th>
+          <td mat-cell *matCellDef="let element"> {{element.mail}} </td>
+        </ng-container>
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef > Actions</th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-raised-button>
+              Edit
+            </button>
+            <button mat-raised-button>
+              Delete
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+
+      </table>
+    </div>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>
+
